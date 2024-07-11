@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqrfa6fq5c5kh"]
+
+[ext_resource type="Texture2D" uid="uid://dsp17in56spth" path="res://Wind.png" id="1_83f03"]
+[ext_resource type="Script" path="res://wind_bullet.gd" id="1_blse0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbr4g"]
+size = Vector2(32, 32)
+
+[node name="WindBullet" type="Area2D"]
+top_level = true
+position = Vector2(137, 133)
+rotation = 1.5708
+script = ExtResource("1_blse0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mbr4g")
+
+[node name="Wind" type="Sprite2D" parent="."]
+texture = ExtResource("1_83f03")

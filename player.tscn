@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dms3pojqiplkr"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_58m8q"]
+[ext_resource type="Texture2D" uid="uid://cibj0h8fb5or1" path="res://Puzzlegame.png" id="2_u41dx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uinuf"]
+size = Vector2(16, 19)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_58m8q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_uinuf")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_u41dx")
+hframes = 4
+vframes = 2
+region_rect = Rect2(0, 32, 64, 0)
+
+[node name="BoxDirectionRef" type="RayCast2D" parent="."]
+rotation = 3.14159
+scale = Vector2(8.84, 0.600001)
+target_position = Vector2(1.48342e-07, 25)
