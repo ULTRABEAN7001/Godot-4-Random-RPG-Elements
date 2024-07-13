@@ -45,4 +45,7 @@ func _physics_process(delta):
 		bullet.direction = boxdir
 		bullet.global_position = self.global_position
 		add_sibling(bullet)
+		
+	if Input.is_action_just_pressed("debug_test"):
+		get_tree().change_scene_to_file("res://battle.tscn")
 	
