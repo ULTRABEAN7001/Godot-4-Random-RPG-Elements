@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp3w6blns0goo"]
+
+[ext_resource type="Texture2D" uid="uid://dvbb0sn2pmsx0" path="res://owlfoxes.png" id="1_ghqtd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luqca"]
+atlas = ExtResource("1_ghqtd")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2crs"]
+size = Vector2(32, 19)
+
+[node name="Jeremy" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = SubResource("AtlasTexture_luqca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_w2crs")

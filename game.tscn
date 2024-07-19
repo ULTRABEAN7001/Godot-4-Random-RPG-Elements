@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbvgridb2dq12"]
+[gd_scene load_steps=14 format=3 uid="uid://bbvgridb2dq12"]
 
 [ext_resource type="Texture2D" uid="uid://cibj0h8fb5or1" path="res://Puzzlegame.png" id="1_0youi"]
 [ext_resource type="PackedScene" uid="uid://dms3pojqiplkr" path="res://player.tscn" id="1_updo3"]
 [ext_resource type="PackedScene" uid="uid://ce7sq2crewu52" path="res://box.tscn" id="3_0ivms"]
 [ext_resource type="PackedScene" uid="uid://br85utjbeqdkq" path="res://button.tscn" id="4_udflg"]
 [ext_resource type="Script" path="res://KillArea.gd" id="5_jet7g"]
+[ext_resource type="PackedScene" uid="uid://dp3w6blns0goo" path="res://jeremy.tscn" id="6_vd4ma"]
+[ext_resource type="PackedScene" uid="uid://bs5sguqycj224" path="res://actionable.tscn" id="7_162d5"]
+[ext_resource type="Resource" uid="uid://1b2nykfpx8ic" path="res://dialogue/test.dialogue" id="8_yvd5a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yghwl"]
 texture = ExtResource("1_0youi")
@@ -28,6 +31,9 @@ size = Vector2(20, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1tdp"]
 size = Vector2(301.25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b03oa"]
+size = Vector2(42.125, 27.5)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -77,5 +83,17 @@ shape = SubResource("RectangleShape2D_v1tdp")
 [node name="DownColl" type="CollisionShape2D" parent="Player/KillArea"]
 position = Vector2(27.5, 88.75)
 shape = SubResource("RectangleShape2D_v1tdp")
+
+[node name="Jeremy" parent="." instance=ExtResource("6_vd4ma")]
+position = Vector2(350, 100)
+scale = Vector2(2, 2)
+
+[node name="Actionable" parent="Jeremy" instance=ExtResource("7_162d5")]
+dialogue_resource = ExtResource("8_yvd5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jeremy/Actionable"]
+position = Vector2(0.1875, -0.25)
+shape = SubResource("RectangleShape2D_b03oa")
+debug_color = Color(0, 0.646072, 0.245766, 0.42)
 
 [connection signal="body_entered" from="Player/KillArea" to="Player/KillArea" method="_on_body_entered"]

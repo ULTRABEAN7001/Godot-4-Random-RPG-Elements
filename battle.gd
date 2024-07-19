@@ -23,3 +23,7 @@ func _on_player_group_make_choice():
 #same as on_fight_pressed but only disables butttons
 func _on_defend_pressed():
 	v_box_container.visible = false
+
+
+func _on_run_pressed():
+	get_tree().change_scene_to_file("res://game.tscn")
